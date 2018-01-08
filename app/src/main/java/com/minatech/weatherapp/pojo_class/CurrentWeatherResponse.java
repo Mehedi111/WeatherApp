@@ -18,7 +18,7 @@ public class CurrentWeatherResponse {
         private Double speed;
         @SerializedName("deg")
         @Expose
-        private Integer deg;
+        private Double deg;
 
         public Double getSpeed() {
             return speed;
@@ -28,11 +28,11 @@ public class CurrentWeatherResponse {
             this.speed = speed;
         }
 
-        public Integer getDeg() {
+        public Double getDeg() {
             return deg;
         }
 
-        public void setDeg(Integer deg) {
+        public void setDeg(Double deg) {
             this.deg = deg;
         }
 
@@ -165,16 +165,16 @@ public class CurrentWeatherResponse {
         private Double temp;
         @SerializedName("pressure")
         @Expose
-        private Integer pressure;
+        private Double pressure;
         @SerializedName("humidity")
         @Expose
         private Integer humidity;
         @SerializedName("temp_min")
         @Expose
-        private Integer tempMin;
+        private Double tempMin;
         @SerializedName("temp_max")
         @Expose
-        private Integer tempMax;
+        private Double tempMax;
 
         public Double getTemp() {
             return temp;
@@ -184,11 +184,11 @@ public class CurrentWeatherResponse {
             this.temp = temp;
         }
 
-        public Integer getPressure() {
+        public Double getPressure() {
             return pressure;
         }
 
-        public void setPressure(Integer pressure) {
+        public void setPressure(Double pressure) {
             this.pressure = pressure;
         }
 
@@ -200,19 +200,19 @@ public class CurrentWeatherResponse {
             this.humidity = humidity;
         }
 
-        public Integer getTempMin() {
+        public Double getTempMin() {
             return tempMin;
         }
 
-        public void setTempMin(Integer tempMin) {
+        public void setTempMin(Double tempMin) {
             this.tempMin = tempMin;
         }
 
-        public Integer getTempMax() {
+        public Double getTempMax() {
             return tempMax;
         }
 
-        public void setTempMax(Integer tempMax) {
+        public void setTempMax(Double tempMax) {
             this.tempMax = tempMax;
         }
 

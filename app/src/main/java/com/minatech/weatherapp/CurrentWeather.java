@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -30,8 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CurrentWeather extends Fragment {
 
     LocationHelper helper;
-    ProgressDialog dialog;
-
     double latitude = 0.0;
     double longitude = 0.0;
     
@@ -52,7 +53,6 @@ public class CurrentWeather extends Fragment {
         currentTempTV = v.findViewById(R.id.currentTempTV);
 
 
-        dialog = new ProgressDialog(getActivity());
         helper = (LocationHelper) getActivity();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -63,15 +63,11 @@ public class CurrentWeather extends Fragment {
 
 
 
-        longitude = helper.getLongitude();
-        latitude = helper.getLatitude();
-        unit = helper.getUnit();
+            this.longitude = helper.getLongitude();
+            this.latitude = helper.getLatitude();
+            this.unit = helper.getUnit();
+            retrofitService();
 
-
-            //progressDialogStatus();
-           retrofitService();
-
-       // Log.e("lat", latitude+" "+longitude);
 
         return v;
     }
@@ -87,15 +83,18 @@ public class CurrentWeather extends Fragment {
                 public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
 
                     if (response.code() == 200) {
-                        CurrentWeatherResponse currentWeatherResponse = response.body();
-                        String name = currentWeatherResponse.getName();
-                        double temp = currentWeatherResponse.getMain().getTemp();
-                        String country = currentWeatherResponse.getSys().getCountry();
-
-                        currentTempTV.setText("CityName: " + name + "\nTemperature: " + temp + "\n" + country);
 
 
-                       // progressDialogStatus();
+                            CurrentWeatherResponse currentWeatherResponse = response.body();
+                            String name = currentWeatherResponse.getName();
+                            double temp = currentWeatherResponse.getMain().getTemp();
+                            String country = currentWeatherResponse.getSys().getCountry();
+
+                            currentTempTV.setText("CityName: " + name + "\nTemperature: " + temp + "\n" + country);
+
+
+
+
                     }
                 }
 
@@ -105,29 +104,9 @@ public class CurrentWeather extends Fragment {
                     Log.e(TAG, t.getMessage());
                 }
             });
-
-
-
-
-
-
         }
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-
-    }
-
-    void progressDialogStatus(){
-        if (dialog.isShowing()){
-            dialog.dismiss();
-        }else {
-            dialog.show();
-        }
-    }
 
 
 

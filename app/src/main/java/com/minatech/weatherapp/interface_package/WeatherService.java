@@ -2,6 +2,7 @@ package com.minatech.weatherapp.interface_package;
 
 import com.minatech.weatherapp.pojo_class.CurrentWeatherResponse;
 import com.minatech.weatherapp.pojo_class.ForecastWeatherResponse;
+import com.minatech.weatherapp.pojo_class.SearchedWeatherResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -18,4 +19,8 @@ public interface WeatherService {
 
     @GET()
     Call<ForecastWeatherResponse> getForeCastWeather(@Url String forecastURL);
+
+
+    @GET()
+    Call<SearchedWeatherResponse> getSearchedWeather(@Url String searchedURL);
 }
