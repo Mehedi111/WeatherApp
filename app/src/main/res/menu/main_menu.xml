@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="searchView"
+        android:id="@+id/searchView"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+
+        />
+
+    <item android:title="Celsious"
+        android:id="@+id/celsious"
+        android:icon="@drawable/cel"
+        app:showAsAction="always"
+        />
+
+    <item android:title="Farenhite"
+        android:id="@+id/farenhite"
+        android:icon="@drawable/fah"
+        app:showAsAction="always"
+        />
+
+
+
+
+
+</menu>

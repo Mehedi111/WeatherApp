@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Weather App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="ApiKey">ac27c3ff05135d5e437f974d0e818186</string>
+</resources>
